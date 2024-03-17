@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgb(168,93,3);
+            background: radial-gradient(circle, rgba(168,93,3,1) 13%, rgba(0,0,0,1) 100%);
+        }
+
+        .sun {
+            width: 100px;
+            height: 100px;
+            background-color: #f1ca1c;
+            border-radius: 50%;
+            box-shadow: 0 0 50px orangered;
+            animation: rotate-sun 8s linear infinite;
+            position: relative;
+        }
+        .sun::before
+        {
+           content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 350px;
+            height: 350px;
+            border: 1px dashed rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            box-sizing: border-box;
+            transform-origin: 0 0;
+            transform: translate(-50%, -50%);
+        }
+        .earth {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgb(7, 78, 185);
+            top: 50%;
+            left: 50%;
+            transform-origin: top left;
+            animation: orbit-earth 10s linear infinite;
+        }
+
+        .moon {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #EBE5DB;
+            top: 50%;
+            left: 50%;
+            transform-origin: top left;
+            animation: rotate-moon 3s linear infinite;
+        }
+
+        .earth::before
+        {
+           content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            border: 1px dashed rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            box-sizing: border-box;
+            transform-origin: 0 0;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes rotate-sun {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes orbit-earth {
+            0% {
+                transform: rotate(0deg) translate(-50%, -200px)
+            }
+
+            100% {
+                transform: rotate(360deg) translate(-50%, -200px)
+            }
+        }
+
+        @keyframes rotate-moon {
+            0% {
+                transform: rotate(0deg) translateX(30px)
+            }
+
+            100% {
+                transform: rotate(360deg) translateX(30px)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sun">
+        <div class="earth">
+            <div class="moon"></div>
+        </div>
+    </div>
+</body>
+
+</html>
